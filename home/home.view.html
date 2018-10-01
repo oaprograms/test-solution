@@ -1,0 +1,45 @@
+﻿<section class="user-info">
+    User: {{ vm.data.user.username }}
+</section>
+<section class="create-project">
+    <a href="" class="btn btn-primary" ng-click="vm.createProject()">Create project</a>
+</section>
+<section class="options">
+    <select name="limit" ng-model="vm.data.options.limit" ng-change="vm.getTasks()">
+        <option value="5">Show 5 items</option>
+        <option value="10">Show 10 items</option>
+        <option value="25">Show 25 items</option>
+    </select>
+    <select name="status" ng-model="vm.data.options.status" ng-change="vm.getTasks()">
+        <option value="">Any Status</option>
+        <option value="QUEUED">Queued</option>
+        <option value="DRAFT">Draft</option>
+        <option value="RUNNING">Running</option>
+        <option value="COMPLETED">Completed</option>
+        <option value="ABORTED">Aborted</option>
+        <option value="FAILED">Failed</option>
+    </select>
+</section>
+<section class="tasks">
+    <table>
+        <tr ng-repeat="task in vm.data.tasks" ng-if="!vm.data.status.loading">
+            <td>
+                <a class="btn btn-danger" ng-click="vm.deleteTask(task)">Delete</a>
+            </td>
+            <td>
+                <a href="#!task/{{task.id}}">{{ task.name }}</a>
+            </td>
+        </tr>
+        <tr ng-if="vm.data.tasks.length === 0 && !vm.data.status.loading">
+            <td>
+                No tasks found.
+            </td>
+        </tr>
+        <tr ng-if="vm.data.status.loading">
+            <td>
+                Loading...
+            </td>
+        </tr>
+    </table>
+</section>
+

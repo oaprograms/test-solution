@@ -1,0 +1,21 @@
+﻿<section>
+    <a href="#!/">&lt All Tasks</a>
+</section>
+<section class="create-project">
+    <a href="" class="btn btn-primary" ng-click="vm.createProject()">Create project</a>
+</section>
+<section class="task-info">
+    <h3>Task info:</h3>
+    <ul>
+        <li>
+            Name: {{ vm.data.task.name }}
+        </li>
+        <li>
+            Status: {{ vm.data.task.status }}
+        </li>
+        <li>
+            Project: {{ vm.data.task.project }}
+        </li>
+    </ul>
+</section>
+

@@ -1,0 +1,13 @@
+﻿section {
+    margin-bottom: 10px;
+}
+input[type="text"] {
+    padding-left: 5px;
+}
+main {
+    padding-top: 20px;
+}
+.tasks td {
+    padding-right: 10px;
+    padding-bottom: 5px;
+}

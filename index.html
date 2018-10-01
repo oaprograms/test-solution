@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Seven Bridges Test - Ognjen Apic</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+
+    <!--Project css-->
+    <link href="app-content/app.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <main>
+            <!--Notification-->
+            <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+
+            <!--Current view (resolved with router) -->
+            <div ng-view></div>
+        </main>
+    </div>
+
+    <!--Angular, bootstrap libs-->
+    <script src="//code.angularjs.org/1.6.0/angular.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js" integrity="sha256-tyfWW2LtJQNI+l3F0h6xDV/ij6Mfn8lwSKHWOsmEgXM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-animate.min.js" integrity="sha256-D3VI7PNMFqWDqqDJYZvIAufucnY3MyoO20czcnlPBYw=" crossorigin="anonymous"></script>
+
+    <!--project files-->
+    <script src="app.js"></script>
+    <script src="app-services/task.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+
+    <script src="create-project-modal/modal.controller.js"></script>
+
+    <script src="home/home.controller.js"></script>
+    <script src="task/task.controller.js"></script>
+
+    <!--Create Project modal-->
+    <script type="text/ng-template" id="createProjectModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Create Project</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <input type="text" placeholder="Project name" ng-model="vm.projectName">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.create()" ng-disabled="!vm.projectName">Create</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+
+</body>
+</html>
